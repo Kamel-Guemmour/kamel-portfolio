@@ -27,7 +27,8 @@ contactForm.addEventListener("submit",async(event)=>{
   contactStatus.textContent=formMessages[language].success;
   contactStatus.className="form-status is-success";
  }catch(error){
-  contactStatus.textContent=formMessages[language].error;
+  console.error("Contact form submission failed:",error);
+  contactStatus.textContent=formMessages[language].error+" ("+(error.message||"Network or script error")+")";
   contactStatus.className="form-status is-error";
  }finally{
   contactSubmit.disabled=false;
